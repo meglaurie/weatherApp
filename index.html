@@ -1,0 +1,222 @@
+<html>
+<!-- our basic 'shell' for javascript work -->
+    <head>
+      <meta charset='utf-8'>
+      <meta name="author" content="Megan Laurie">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Weather APP</title>
+      <link rel="stylesheet" href="css/style.css">
+      <!-- <script src = "js/menu.js"></script> -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    </head>
+    <body onload="initialize()">
+      <!-- <div id= "backgrounds">
+        <div id="calgary"></div>
+        <div id="toronto"></div>
+        <div id="newyork"></div>
+        <div id="chicago"></div>
+        <div id="cupertino"></div>
+        <div id="nashville"></div>
+        <div id="los-angeles"></div>
+        <div id="london"></div>
+        <div id="hongkong"></div>
+        <div id="singapore"></div>
+        <div id="saopaulo"></div>
+        <div id="sanjose"></div>
+      </div> -->
+
+
+      <div class="content-box">
+        <div id= "logo"></div>
+        <h1 id="cbo"></h1>
+        <hr>
+        <br/>
+
+        <div class="container">
+          <div class="label">
+            <h3>Mainly:</h3>
+            <h3>Temperature:</h3>
+            <h3>Wind:</h3>
+          </div>
+
+          <div class="container">
+            <img id="icon"/>
+            <div id="thermo-icon"></div>
+            <div class="wind-mill">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+
+          <div class="info">
+            <span id="main"></span>
+            <span id="temp"></span>
+            <span id="wind"></span>
+          </div>
+
+        </div>
+      </div>
+        <script>
+          var title = [
+            'Calgary',
+            'Toronto',
+            'New York',
+            'Chicago',
+            'Cupertino',
+            'Nashville',
+            'Los Angeles',
+            'London',
+            'Hong Kong',
+            'Singapore',
+            'Sao Paulo',
+            'San Jose'];
+
+
+            var cities = [
+              'Calgary,ca',
+              'Toronto,ca',
+              'New York,us',
+              'Chicago,us',
+              'Cupertino,us',
+              'Nashville,us',
+              'Los Angeles,us',
+              'London,en',
+              'Hong Kong,hk',
+              'Singapore,sp',
+              'Sao Paulo,br',
+              'San Jose,cr',];
+
+              var background =[
+                'calgary.jpg',
+                'toronto.jpg',
+                'newyork.jpg',
+                'chicago.jpg',
+                'cupertino.jpg',
+                'nashville.jpg',
+                'losangeles.jpg',
+                'london.jpg',
+                'hongkong.jpg',
+                'singapore.jpg',
+                'saopaulo.jpg',
+                'sanjose.jpg'];
+            // some jquery to get the selected value out of the select box
+            // once we have that, call the getWeather() function
+            $(document).ready(function(){
+                // when the value of the cbo select box changes...
+                $("#cbo").on('change',function(){
+                    // inside here, 'this' points to $(#cbo)
+                    city=this.value
+                    // call getWeather() based on my new city
+                    getWeather();
+                })
+            })
+
+            var currCityNum = -1;
+            var city = cities[currCityNum]; //initialized to calgary
+            function initialize(){
+              setInterval(changeCity, 3000);
+              console.log(currCityNum);
+              changeCity();
+            }
+
+            function changeCity(){
+              currCityNum++;
+              if(currCityNum == cities.length){
+                currCityNum = 0;
+              }
+              var nextCity = cities[currCityNum];
+              city = nextCity;
+              document.getElementById('cbo').innerHTML = title[currCityNum];
+              setImageCity();
+              getWeather();
+              // console.log(city);
+
+            }
+
+
+            function setImageCity(){
+              if(city === 'Calgary,ca'){
+                document.body.style.backgroundImage = "url('img/calgary.jpg')";
+              }
+              if(city === 'Toronto,ca'){
+                document.body.style.backgroundImage = "url('img/toronto.jpg')";
+              }
+              if(city === 'New York,us'){
+                document.body.style.backgroundImage = "url('img/newyork.jpg')";
+              }
+              if(city === 'Chicago,us'){
+                document.body.style.backgroundImage =  "url('img/chicago.jpg')";
+              }
+              if(city === 'Cupertino,us'){
+                document.body.style.backgroundImage = "url('img/cupertino.jpg')";
+              }
+              if(city === 'Nashville,us'){
+                document.body.style.backgroundImage = "url('img/nashville.jpg')";
+              }
+              if(city === 'Los Angeles,us'){
+                document.body.style.backgroundImage = "url('img/losangeles.jpg')";
+              }
+              if(city === 'London,en'){
+                document.body.style.backgroundImage = "url('img/london.jpg')";
+              }
+              if(city === 'Hong Kong,hk'){
+                document.body.style.backgroundImage = "url('img/hongkong.jpg')";
+              }
+              if(city === 'Singapore,sp'){
+                document.body.style.backgroundImage = "url('img/singapore.jpg')";
+              }
+              if(city === 'Sao Paulo,br'){
+                document.body.style.backgroundImage = "url('img/saopaulo.jpg')";
+              }
+              if(city === 'San Jose,cr'){
+                document.body.style.backgroundImage = "url('img/sanjose.jpg')";
+              }
+            }
+
+          function getWeather(){
+            //AJAX request
+            var xhttp = new XMLHttpRequest();
+            var url = "http://api.openweathermap.org/data/2.5/weather?q="+ city +"&appid=317f42b9243d2198aca515d0a92dccfb";
+
+            // AJAX event handler
+            xhttp.onreadystatechange = function(){
+                //check state and status
+                if(xhttp.readyState==4 && xhttp.status==200){
+                    var responseText = JSON.parse(xhttp.responseText);
+                    //function to output our weather data
+                    outputWeather(responseText);
+                }
+            }
+                // start AJAX call
+                xhttp.open("GET",url,true);
+                xhttp.send();
+
+          }   // closing getWeather()
+
+                // define our outputWeather function
+                function outputWeather(weatherData){
+                    // in here 'weatherData' will be set to our responseText from above
+
+
+                    // the 'weather' array in our JSON, we need to use:
+                    // weatherData.weather[0]
+                    document.getElementById('main').innerHTML =
+                      weatherData.weather[0].main;
+
+                    document.getElementById('icon').src =
+                      "http://openweathermap.org/img/w/" +
+                        weatherData.weather[0].icon + ".png";
+
+                    // temperature in the JSON is in Kelvins!!
+                    document.getElementById('temp').innerHTML =
+                      parseInt(weatherData.main.temp-273.15);
+
+                    document.getElementById('wind').innerHTML =
+                      weatherData.wind.speed + " mph";
+                }
+
+
+        </script>
+    </body>
+</html>
