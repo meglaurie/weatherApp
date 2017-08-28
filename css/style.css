@@ -7,63 +7,11 @@ body{
   background-size: cover;
   font-family: "Trade Gothic LT Std";
 }
-.content-box{
-  background: #f2f2f2;
-  width: 600px;
-  height:350px;
-  /*border-radius: 250px;*/
-  margin: 0 auto;
-  box-shadow: 15px 15px 30px #000;
-  margin-top: 40%;
-  /*padding: 50px;*/
-  z-index: 99;
-}
-
-.container{
-  width:100%;
-  float:left;
-  display: inline-block;
-}
-.label h3{
-  margin: 0 auto;
-  display: inline;
-  padding: 45px;
-  margin: 0 auto;
-  margin-bottom: 25px;
-  font-size: 25px;
-}
-.label{
-  margin-left: 20px;
-}
-
-.sub-container{
-  height:75%;
-  width: 33%;
-  display: inline;
-  text-align: center;
-}
-
-.info{
-  margin-top: 0 auto;
-}
-
-.info span{
-  padding: 65px;
-  font-size: 16px;
-}
-
-#main{
-  margin-left: 10px;
-  margin-right: 40px;
-}
-
-#wind{
-  margin-left: 10px;
-}
 
 hr{
   width: 500px;
 }
+
 #logo{
   height: 100px;
   width: 100px;
@@ -86,21 +34,70 @@ hr{
   font-size: 55px;
 }
 
+.content-box{
+  background: #f2f2f2;
+  width: 600px;
+  height:350px;
+  /*border-radius: 250px;*/
+  margin: 0 auto;
+  box-shadow: 15px 15px 30px #000;
+  margin-top: 40%;
+  /*padding: 50px;*/
+  z-index: 99;
+}
+
+.container{
+  width:33%;
+  float:left;
+  display: inline-block;
+  height: auto;
+}
+.label h3{
+  display: inline;
+  padding: 45px;
+  margin-bottom: 25px;
+  font-size: 25px;
+  margin-left: 20px;
+}
+
+.mainly{
+  display: block;
+  margin-left: 55px;
+}
+.tempurature{
+  display: block;
+  margin-left: 55px;
+}
+.wind-speed{
+  display: block;
+  /*margin-right: 50px;*/
+  margin-left: 75px;
+}
+
+#main{
+  margin-left: 15px;
+  margin-right: 40px;
+}
+
+#wind{
+  margin-left: 10px;
+}
+#temp{
+margin-left: 32%;
+}
+
 #icon{
   height:70px;
   width:70px;
-  float: left;
-  /*top:-15%;*/
-  margin-left: 65px;
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #thermo-icon{
   width:40px;
   height:60px;
-  float: left;
+  margin-bottom: 20px;
   margin-top: 10px;
-  margin-left: 150px;
+  margin-left: 25%;
   background-image: url(../img/therm-icon.png);
   background-position: 50% 50%;
   -webkit-background-size: cover;
@@ -263,9 +260,9 @@ hr{
     height: 100px;
     border-radius: 400px;
     top: 75%;
-    left: 58%;
-    margin-top: -10px;
-    margin-left: 74%;
+    /*left: 58%;*/
+    margin-top: -20px;
+    margin-left: -20px;
     animation: spin 7s linear 0s infinite reverse none;
 	  -webkit-animation: spin 7s linear 0s infinite reverse none;
 }
