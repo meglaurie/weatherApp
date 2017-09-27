@@ -1,11 +1,14 @@
 body{
   height:100%;
   width:100%;
-  background-color: black;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   font-family: "Trade Gothic LT Std";
+  -webkit-transition: background-image 200ms ease-in 200ms; /* property duration timing-function delay */
+  -moz-transition: background-image 200ms ease-in 200ms;
+  -o-transition: background-image 200ms ease-in 200ms;
+  transition: background-image 200ms ease-in 200ms;
 }
 
 hr{
@@ -75,13 +78,10 @@ hr{
 }
 
 #main{
-  margin-left: 15px;
+  margin-left: 10px;
   margin-right: 40px;
 }
 
-#wind{
-  margin-left: 10px;
-}
 #temp{
 margin-left: 32%;
 }
@@ -90,6 +90,7 @@ margin-left: 32%;
   height:70px;
   width:70px;
   margin-bottom: 10px;
+  margin-left: -5px;
 }
 
 #thermo-icon{
@@ -262,7 +263,7 @@ margin-left: 32%;
     top: 75%;
     /*left: 58%;*/
     margin-top: -20px;
-    margin-left: -20px;
+    margin-left: -23px;
     animation: spin 7s linear 0s infinite reverse none;
 	  -webkit-animation: spin 7s linear 0s infinite reverse none;
 }

@@ -9,22 +9,7 @@
       <!-- <script src = "js/menu.js"></script> -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     </head>
-    <body onload="initialize()">
-      <!-- <div id= "backgrounds">
-        <div id="calgary"></div>
-        <div id="toronto"></div>
-        <div id="newyork"></div>
-        <div id="chicago"></div>
-        <div id="cupertino"></div>
-        <div id="nashville"></div>
-        <div id="los-angeles"></div>
-        <div id="london"></div>
-        <div id="hongkong"></div>
-        <div id="singapore"></div>
-        <div id="saopaulo"></div>
-        <div id="sanjose"></div>
-      </div> -->
-
+    <body id="bodyBackground" onload="initialize()">
 
       <div class="content-box">
         <div id= "logo"></div>
@@ -63,8 +48,6 @@
             <span id="wind" class="info"></span>
           </div>
         </div>
-
-      
 
         </div>
       </div>
@@ -142,11 +125,15 @@
               setImageCity();
               getWeather();
               // console.log(city);
-
             }
 
-
             function setImageCity(){
+
+              // var elem = document.getElementById('backgroundImage');
+              // for (i=0; i < background.length ; i++){
+              //   elem.appendChild(background[i]);
+              // }
+
               if(city === 'Calgary,ca'){
                 document.body.style.backgroundImage = "url('img/calgary.jpg')";
               }
