@@ -28,6 +28,20 @@ var title = [
       'Sao Paulo,br',
       'San Jose,cr',];
 
+      var background =[
+        'calgary.jpg',
+        'toronto.jpg',
+        'newyork.jpg',
+        'chicago.jpg',
+        'cupertino.jpg',
+        'nashville.jpg',
+        'losangeles.jpg',
+        'london.jpg',
+        'hongkong.jpg',
+        'singapore.jpg',
+        'saopaulo.jpg',
+        'sanjose.jpg'];
+
 
     // some jquery to get the selected value out of the select box
     // once we have that, call the getWeather() function
@@ -41,13 +55,14 @@ var title = [
         })
     })
 
-    var currCityNum = -1;
-    var city = cities[currCityNum]; //initialized to calgary
     function initialize(){
       setInterval(changeCity, 10000);
-      console.log(currCityNum);
+      // console.log(currCityNum);
       changeCity();
     }
+
+    var currCityNum = -1;
+    var city = cities[currCityNum]; //initialized to calgary
 
     function changeCity(){
       currCityNum++;
@@ -62,66 +77,18 @@ var title = [
       // console.log(city);
     }
 
+    var currBGNum = -1;
+    var backgroundPic = background[currBGNum];
+
     function setImageCity(){
-      // var background =[
-      //   'calgary.jpg',
-      //   'toronto.jpg',
-      //   'newyork.jpg',
-      //   'chicago.jpg',
-      //   'cupertino.jpg',
-      //   'nashville.jpg',
-      //   'losangeles.jpg',
-      //   'london.jpg',
-      //   'hongkong.jpg',
-      //   'singapore.jpg',
-      //   'saopaulo.jpg',
-      //   'sanjose.jpg'];
-      //   var x;
-      // for (x ; x>= background.length ; x++){
-      //   // body.src = background[i];
-      //   body.style.background = "url('img/" + background[x] + "')";
-      //   return body;
-      // }
-
-      if(city === 'Calgary,ca'){
-        body.style.background = "url('img/calgary.jpg')";
-
+      currBGNum ++;
+      if(currBGNum == background.length){
+        currBGNum = 0;
       }
-      if(city === 'Toronto,ca'){
-        body.style.background = "url('img/toronto.jpg')";
-  ;
-      }
-      if(city === 'New York,us'){
-        body.style.background = "url('img/newyork.jpg')";
-      }
-      if(city === 'Chicago,us'){
-        body.style.background =  "url('img/chicago.jpg')";
-      }
-      if(city === 'Cupertino,us'){
-        body.style.background = "url('img/cupertino.jpg')";
-      }
-      if(city === 'Nashville,us'){
-        body.style.background = "url('img/nashville.jpg')";
-      }
-      if(city === 'Los Angeles,us'){
-        body.style.background = "url('img/losangeles.jpg')";
-      }
-      if(city === 'London,en'){
-        body.style.background = "url('img/london.jpg')";
-      }
-      if(city === 'Hong Kong,hk'){
-        body.style.background = "url('img/hongkong.jpg')";
-      }
-      if(city === 'Singapore,sp'){
-        body.style.background = "url('img/singapore.jpg')";
-      }
-      if(city === 'Sao Paulo,br'){
-        body.style.background = "url('img/saopaulo.jpg')";
-      }
-      if(city === 'San Jose,cr'){
-        body.style.background = "url('img/sanjose.jpg')";
-      }
-}
+      var nextPic = background[currBGNum];
+      backgroundPic = nextPic;
+      body.style.background = "url('img/" + backgroundPic + "')";
+  }
 
   function getWeather(){
     //AJAX request
