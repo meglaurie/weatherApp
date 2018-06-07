@@ -10,10 +10,10 @@ body{
   background-repeat: no-repeat;
   background-size: cover !important;
   font-family: "Trade Gothic LT Std";
-  /* -webkit-transition: background-image 400ms ease-in 400ms;
+  -webkit-transition: background-image 400ms ease-in 400ms;
   -moz-transition: background-image 400ms ease-in 400ms;
   -o-transition: background-image 400ms ease-in 400ms;
-  transition: background-image 400ms ease-in 400ms; */
+  transition: background-image 400ms ease-in 400ms;
 
 }
 
