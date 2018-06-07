@@ -1,15 +1,38 @@
 body{
   height:100%;
   width:100%;
+  z-index: 0;
+  padding:0px;
+  padding-top: 15%;
+  margin: 0px;
+  overflow: scroll;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover !important;
   font-family: "Trade Gothic LT Std";
-  -webkit-transition: background-image 400ms ease-out 400ms; /* property duration timing-function delay */
-  -moz-transition: background-image 400ms ease-out 400ms;
-  -o-transition: background-image 400ms ease-out 400ms;
-  transition: background-image 400ms ease-out 400ms;
+  /* -webkit-transition: background-image 400ms ease-in 400ms;
+  -moz-transition: background-image 400ms ease-in 400ms;
+  -o-transition: background-image 400ms ease-in 400ms;
+  transition: background-image 400ms ease-in 400ms; */
+
 }
+
+/*.linear-grad{
+  width:100%;
+  height:100%;
+  overflow: scroll;
+  z-index: 1;
+  background: linear-gradient(45deg, yellow, purple);
+  opacity: 0.5;
+}*/
+
+/*body #bodyBackground{
+  -webkit-transition: opacity 3s ease-out;
+    -moz-transition: opacity 3s ease-out;
+    -ms-transition: opacity 3s ease-out;
+    -o-transition: opacity 3s ease-out;
+     opacity: 0.3;
+}*/
 
 hr{
   width: 500px;
@@ -41,10 +64,10 @@ hr{
   background: #f2f2f2;
   width: 600px;
   height:350px;
+  opacity: .9;
   /*border-radius: 250px;*/
   margin: 0 auto;
   box-shadow: 15px 15px 30px #000;
-  margin-top: 40%;
   /*padding: 50px;*/
   z-index: 99;
 }
