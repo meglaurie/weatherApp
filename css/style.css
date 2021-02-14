@@ -16,6 +16,10 @@ body{
 
 }
 
+:root {
+  --wind-mill-speed: 0s;
+}
+
 /* .linear-grad{
   width:100%;
   height:100vh;
@@ -130,7 +134,7 @@ hr{
   background-size: cover;
 }
 
-.wind-mill{
+#wind-mill{
   width: 100px;
     height: 100px;
     border-radius: 400px;
@@ -138,12 +142,13 @@ hr{
     /*left: 58%;*/
     margin: 0 auto;
     margin-top: -20px;
-    animation: spin 7s linear 0s infinite reverse none;
-	  -webkit-animation: spin 7s linear 0s infinite reverse none;
+    animation: spin linear 0s infinite reverse none;
+
+	  /* -webkit-animation: spin 7s linear 0s infinite reverse none; */
 }
 
 
-.wind-mill:before{
+#wind-mill:before{
   position: absolute;
   content: "";
   top: 50%;
@@ -152,15 +157,16 @@ hr{
   height:13px;
   background-color: black;
   /*box-shadow: 2px -4px 0 0 rgba(200,202,215,1) inset;*/
-  animation: spin 7s linear 0s infinite normal none;
-	-webkit-animation: spin 7s linear 0s infinite normal none;
+  animation-name: spin linear 0s infinite normal none;
+  
+	/* -webkit-animation: spin 7s linear 0s infinite normal none; */
   border-radius: 19px;
   margin-top: -7px;
   margin-left: -7px;
   z-index: 10;
 }
 
-.wind-mill div {
+#wind-mill div {
   position: absolute;
     top: 50%;
     left: 50%;
@@ -176,13 +182,13 @@ hr{
     transform-origin: top center;
 }
 
-.wind-mill div:before,
-.wind-mill div:after {
+#wind-mill div:before,
+#wind-mill div:after {
   position: absolute;
   content: "";
 }
 
-.wind-mill div:nth-of-type(1){
+#wind-mill div:nth-of-type(1){
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
@@ -190,7 +196,7 @@ hr{
     transform: rotate(0deg);
 }
 
-.wind-mill div:nth-of-type(2){
+#wind-mill div:nth-of-type(2){
     -webkit-transform: rotate(120deg);
     -moz-transform: rotate(120deg);
     -ms-transform: rotate(120deg);
@@ -198,7 +204,7 @@ hr{
     transform: rotate(120deg);
 }
 
-.wind-mill div:nth-of-type(3){
+#wind-mill div:nth-of-type(3){
     -webkit-transform: rotate(240deg);
     -moz-transform: rotate(240deg);
     -ms-transform: rotate(240deg);
@@ -207,11 +213,27 @@ hr{
 }
 
 @keyframes spin {
-	100% { -webkit-transform: rotate( -360deg ); -moz-transform: rotate( -360deg ); -ms-transform: rotate( -360deg ); -o-transform: rotate( -360deg ); transform: rotate( -360deg );}
-	0% { -webkit-transform: rotate( 0deg ); -moz-transform: rotate( 0deg ); -ms-transform: rotate( 0deg ); -o-transform: rotate( 0deg ); transform: rotate( 0deg );}
+  100% { -webkit-transform: rotate( -360deg ); 
+         -moz-transform: rotate( -360deg ); 
+         -ms-transform: rotate( -360deg ); 
+         -o-transform: rotate( -360deg ); 
+         transform: rotate( -360deg );}
+  0% { -webkit-transform: rotate( 0deg );
+       -moz-transform: rotate( 0deg ); 
+       -ms-transform: rotate( 0deg ); 
+       -o-transform: rotate( 0deg ); 
+       transform: rotate( 0deg );}
 }
 
 @-webkit-keyframes spin {
-	100% { -webkit-transform: rotate( -360deg ); -moz-transform: rotate( -360deg ); -ms-transform: rotate( -360deg ); -o-transform: rotate( -360deg ); transform: rotate( -360deg );}
-	0% { -webkit-transform: rotate( 0deg ); -moz-transform: rotate( 0deg ); -ms-transform: rotate( 0deg ); -o-transform: rotate( 0deg ); transform: rotate( 0deg );}
+  100% { -webkit-transform: rotate( -360deg ); 
+    -moz-transform: rotate( -360deg ); 
+    -ms-transform: rotate( -360deg ); 
+    -o-transform: rotate( -360deg ); 
+    transform: rotate( -360deg );}
+  0% { -webkit-transform: rotate( 0deg );
+     -moz-transform: rotate( 0deg ); 
+     -ms-transform: rotate( 0deg ); 
+     -o-transform: rotate( 0deg ); 
+     transform: rotate( 0deg );}
 }

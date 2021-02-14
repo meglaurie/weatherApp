@@ -7,9 +7,9 @@ var title = [
     'Cupertino',
     'Nashville',
     'Los Angeles',
-    'London',
+   
     'Hong Kong',
-    'Singapore',
+
     'Sao Paulo',
     'San Jose'];
 
@@ -22,9 +22,9 @@ var title = [
       'Cupertino,us',
       'Nashville,us',
       'Los Angeles,us',
-      'London,en',
+      
       'Hong Kong,hk',
-      'Singapore,sp',
+      
       'Sao Paulo,br',
       'San Jose,cr',];
 
@@ -36,9 +36,9 @@ var title = [
         'cupertino.jpg',
         'nashville.jpg',
         'losangeles.jpg',
-        'london.jpg',
+        
         'hongkong.jpg',
-        'singapore.jpg',
+        
         'saopaulo.jpg',
         'sanjose.jpg'];
 
@@ -129,5 +129,38 @@ var title = [
               parseInt(weatherData.main.temp-273.15);
 
             document.getElementById('wind').innerHTML =
-              weatherData.wind.speed + " mph";
+              (weatherData.wind.speed * 1.6) + " km/h";
+
+            var windSpeed = weatherData.wind.speed;
+            let windMill = document.getElementById('wind-mill');
+            var windMillSpeed ;
+
+            if (windSpeed == 0){
+              windMillSpeed = 0 ;
+            }
+            if (windSpeed > 0 && windSpeed < 2){
+              windMillSpeed = 10;
+            }
+            if (windSpeed > 2 && windSpeed < 4 ){
+              windMillSpeed = 5;
+            }
+            if (windSpeed > 4 && windSpeed < 7 ){
+              windMillSpeed = 2;
+            }
+            if (windSpeed > 7 && windSpeed < 15 ){
+              windMillSpeed = 1;
+            }
+            if (windSpeed > 15 && windSpeed < 30 ){
+              windMillSpeed = .5;
+            }
+            if (windSpeed > 50 ){
+              windMillSpeed = .25;
+            }
+
+          windMill.style.setProperty("animation-duration", windMillSpeed + "s");
+
+          // console.log(windMill.style);
+          // console.log(windSpeed);
+          // console.log(windMillSpeed);
+          
         }
