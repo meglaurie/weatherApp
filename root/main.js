@@ -93,7 +93,7 @@ var title = [
   function getWeather(){
     //AJAX request
     var xhttp = new XMLHttpRequest();
-    var url = "http://api.openweathermap.org/data/2.5/weather?q="+ city +"&appid=317f42b9243d2198aca515d0a92dccfb";
+    var url = "https://api.openweathermap.org/data/2.5/weather?q="+ city +"&appid=317f42b9243d2198aca515d0a92dccfb";
 
     // AJAX event handler
     xhttp.onreadystatechange = function(){
@@ -121,7 +121,7 @@ var title = [
               weatherData.weather[0].main;
 
             document.getElementById('icon').src =
-              "http://openweathermap.org/img/w/" +
+              "https://openweathermap.org/img/w/" +
                 weatherData.weather[0].icon + ".png";
 
             // temperature in the JSON is in Kelvins!!
